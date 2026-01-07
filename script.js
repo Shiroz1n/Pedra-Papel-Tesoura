@@ -4,11 +4,26 @@ const getComputerChoice = (jogada) => {
         return jogada = "Tesoura";
     } else if (escolha == 1) {
         return jogada = "Pedra";
-    } else if (escolha == 2) {
+    } else {
         return jogada = "Papel";
     }
     
-
 };
 
-console.log(getComputerChoice());
+const getHumanChoice = () => {
+    let suaEscolha = prompt("Insira Pedra, Papel ou Tesoura");
+    
+    if (suaEscolha == "pedra") {
+        return `A Maquina jogou: ${getComputerChoice()} e voce jogou ${suaEscolha}`
+    } else if (suaEscolha == "papel") {
+        return `A Maquina jogou: ${getComputerChoice()} e voce jogou ${suaEscolha}`
+    } else if (suaEscolha == "tesoura") {
+        return `A Maquina jogou: ${getComputerChoice()} e voce jogou ${suaEscolha}`
+    } else {
+        return "Valor incorreto"
+    }
+};
+
+
+
+console.log(getHumanChoice());

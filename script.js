@@ -35,8 +35,10 @@ const playRound = (humanChoice, computerChoice) => {
         (humanChoice === "Pedra" && computerChoice === "Tesoura") ||
         (humanChoice === "Tesoura" && computerChoice === "Papel") )
     {
+        ++humanScore // Se add depois, nao funciona
         return "Voce Venceu";
     } else {
+        ++computerScore
         return "Voce perdeu";
     }
 };
@@ -45,4 +47,7 @@ const humanSelection = getHumanChoice(); // Nao repetir pois colocando outro con
 const computerSelection = getComputerChoice();
 
 console.log(humanSelection);
+console.log(computerSelection);
 console.log(playRound(humanSelection, computerSelection));
+console.log(computerScore);
+console.log(humanScore);

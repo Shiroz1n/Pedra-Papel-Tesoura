@@ -1,5 +1,5 @@
-let humanScore = 0;
-let computerScore = 0;
+    let humanScore = 0;
+    let computerScore = 0;
 
 const getComputerChoice = (jogada) => {
    let escolha = Math.floor(Math.random() * (2 - 0 + 1)) // Math.floor(Math.random() * 3)
@@ -43,11 +43,28 @@ const playRound = (humanChoice, computerChoice) => {
     }
 };
 
-const humanSelection = getHumanChoice(); // Nao repetir pois colocando outro console.log se nao vai fazer o prompt 2 vezes
-const computerSelection = getComputerChoice();
+const playGame = () => {
 
-console.log(humanSelection);
-console.log(computerSelection);
-console.log(playRound(humanSelection, computerSelection));
-console.log(computerScore);
-console.log(humanScore);
+    let rounds = 0;
+    const maxround = 5;
+
+    while (rounds < maxround) {
+        const humanSelection = getHumanChoice(); // Nao repetir pois colocando outro console.log se nao vai fazer o prompt 2 vezes
+        const computerSelection = getComputerChoice();
+        console.log(humanSelection);
+        console.log(computerSelection);
+        const result = (playRound(humanSelection, computerSelection));
+        console.log(humanScore);
+        console.log(computerScore);
+        console.log(result);
+        rounds++;
+    }
+
+    if (humanScore > computerScore) {
+        return "Párabens você ganhou"
+    }else {
+        return "Você Perdeu o jogo"
+    }
+};
+
+console.log(playGame());

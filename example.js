@@ -101,3 +101,5 @@ const celular = () => {
 };
 
 console.log(celular());
+
+

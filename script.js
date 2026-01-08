@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 const getComputerChoice = (jogada) => {
    let escolha = Math.floor(Math.random() * (2 - 0 + 1)) // Math.floor(Math.random() * 3)
     if (escolha == 0) {
@@ -13,17 +16,33 @@ const getComputerChoice = (jogada) => {
 const getHumanChoice = () => {
     let suaEscolha = prompt("Insira Pedra, Papel ou Tesoura");
     
-    if (suaEscolha == "pedra") {
-        return `A Maquina jogou: ${getComputerChoice()} e voce jogou ${suaEscolha}`
-    } else if (suaEscolha == "papel") {
-        return `A Maquina jogou: ${getComputerChoice()} e voce jogou ${suaEscolha}`
-    } else if (suaEscolha == "tesoura") {
-        return `A Maquina jogou: ${getComputerChoice()} e voce jogou ${suaEscolha}`
+    if (suaEscolha == "Pedra") {
+        return "Pedra"
+    } else if (suaEscolha == "Papel") {
+        return "Papel"
+    } else if (suaEscolha == "Tesoura") {
+        return "Tesoura"
     } else {
         return "Valor incorreto"
     }
 };
 
+const playRound = (humanChoice, computerChoice) => {
+    if (humanChoice === computerChoice) {
+        return "Empate"
+    } else if (
+        (humanChoice === "Papel" && computerChoice === "Pedra")||
+        (humanChoice === "Pedra" && computerChoice === "Tesoura") ||
+        (humanChoice === "Tesoura" && computerChoice === "Papel") )
+    {
+        return "Voce Venceu";
+    } else {
+        return "Voce perdeu";
+    }
+};
 
+const humanSelection = getHumanChoice(); // Nao repetir pois colocando outro console.log se nao vai fazer o prompt 2 vezes
+const computerSelection = getComputerChoice();
 
-console.log(getHumanChoice());
+console.log(humanSelection);
+console.log(playRound(humanSelection, computerSelection));

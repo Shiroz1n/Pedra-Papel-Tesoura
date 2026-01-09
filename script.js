@@ -14,8 +14,8 @@ const getComputerChoice = (jogada) => {
 };
 
 const getHumanChoice = () => {
-    let suaEscolha = prompt("Insira Pedra, Papel ou Tesoura");
-    
+    let suaEscolha= prompt("Insira Pedra, Papel ou Tesoura");
+    suaEscolha = suaEscolha.charAt(0).toUpperCase() + suaEscolha.slice(1).toLowerCase();
     if (suaEscolha == "Pedra") {
         return "Pedra"
     } else if (suaEscolha == "Papel") {
@@ -23,7 +23,8 @@ const getHumanChoice = () => {
     } else if (suaEscolha == "Tesoura") {
         return "Tesoura"
     } else {
-        return "Valor incorreto"
+        alert = "Valor incorreto, digite novamente"
+        return getHumanChoice();
     }
 };
 
@@ -36,7 +37,7 @@ const playRound = (humanChoice, computerChoice) => {
         (humanChoice === "Tesoura" && computerChoice === "Papel") )
     {
         ++humanScore // Se add depois, nao funciona
-        return "Voce Venceu";
+        return "Voce Venceu a rodada";
     } else {
         ++computerScore
         return "Voce perdeu";

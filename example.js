@@ -103,3 +103,4 @@ const celular = () => {
 console.log(celular());
 
 
+suaEscolha = suaEscolha.charAt(0).toUpperCase() + suaEscolha.slice(1);

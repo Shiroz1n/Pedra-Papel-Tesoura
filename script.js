@@ -13,14 +13,13 @@ const getComputerChoice = (jogada) => {
     
 };
 
-const getHumanChoice = () => {
-    let suaEscolha= prompt("Insira Pedra, Papel ou Tesoura");
-    suaEscolha = suaEscolha.charAt(0).toUpperCase() + suaEscolha.slice(1).toLowerCase();
-    if (suaEscolha == "Pedra") {
+const getHumanChoice = (jogo) => {
+    jogof = jogo.charAt(0).toUpperCase() + jogo.slice(1).toLowerCase();
+    if (jogof == "Pedra") {
         return "Pedra"
-    } else if (suaEscolha == "Papel") {
+    } else if (jogof == "Papel") {
         return "Papel"
-    } else if (suaEscolha == "Tesoura") {
+    } else if (jogof == "Tesoura") {
         return "Tesoura"
     } else {
         alert = "Valor incorreto, digite novamente"
@@ -44,28 +43,59 @@ const playRound = (humanChoice, computerChoice) => {
     }
 };
 
-const playGame = () => {
+// Botao Pedra
+const btn1 = document.querySelector("#rockBtn");
+btn1.addEventListener("click", function (e) {
 
-    let rounds = 0;
-    const maxround = 5;
+    if (humanScore >= 5 || computerScore >= 5) {
+        console.log("Acabou a partida, reinicie a pagina")
+        return
+    };
 
-    while (rounds < maxround) {
-        const humanSelection = getHumanChoice(); // Nao repetir pois colocando outro console.log se nao vai fazer o prompt 2 vezes
-        const computerSelection = getComputerChoice();
-        console.log(humanSelection);
-        console.log(computerSelection);
-        const result = (playRound(humanSelection, computerSelection));
-        console.log(humanScore);
-        console.log(computerScore);
-        console.log(result);
-        rounds++;
-    }
+    const humanSelection = getHumanChoice("Pedra"); // Nao repetir pois colocando outro console.log se nao vai fazer o prompt 2 vezes
+    const computerSelection = getComputerChoice();
+    console.log(humanSelection);
+    console.log(computerSelection);
+    const result = (playRound(humanSelection, computerSelection));
+    console.log(humanScore);
+    console.log(computerScore);
+    console.log(result);
+});
 
-    if (humanScore > computerScore) {
-        return "Párabens você ganhou"
-    }else {
-        return "Você Perdeu o jogo"
-    }
-};
+// Botao Papel
+const btn2 = document.querySelector("#paperBtn");
+btn2.addEventListener("click", function (e) {
 
-console.log(playGame());
+        if (humanScore >= 5 || computerScore >= 5) {
+        console.log("Acabou a partida, reinicie a pagina")
+        return
+    };
+
+    const humanSelection = getHumanChoice("Papel"); // Nao repetir pois colocando outro console.log se nao vai fazer o prompt 2 vezes
+    const computerSelection = getComputerChoice();
+    console.log(humanSelection);
+    console.log(computerSelection);
+    const result = (playRound(humanSelection, computerSelection));
+    console.log(humanScore);
+    console.log(computerScore);
+    console.log(result);
+})
+
+// Botao Tesoura
+const btn3 = document.querySelector("#scissorBtn");
+btn3.addEventListener("click", function (e) {
+
+        if (humanScore >= 5 || computerScore >= 5) {
+        console.log("Acabou a partida, reinicie a pagina")
+        return
+    };
+
+    const humanSelection = getHumanChoice("Tesoura"); // Nao repetir pois colocando outro console.log se nao vai fazer o prompt 2 vezes
+    const computerSelection = getComputerChoice();
+    console.log(humanSelection);
+    console.log(computerSelection);
+    const result = (playRound(humanSelection, computerSelection));
+    console.log(humanScore);
+    console.log(computerScore);
+    console.log(result);
+})
